@@ -1,0 +1,19 @@
+name: ingestion.payment_lookup
+type: duckdb.seed
+
+# Path to the CSV file (relative to this .asset.yml file).
+# Can also be a URL: https://example.com/data.csv
+parameters:
+  path: payment_lookup.csv
+
+columns:
+  - name: payment_type_id
+    type: integer
+    primary_key: true
+    checks:
+      - name: not_null
+      - name: unique
+  - name: payment_type_name
+    type: string
+    checks:
+      - name: not_null

@@ -1,0 +1,11 @@
+{
+    "servers": {
+        "bruin": {
+            "type": "stdio",
+            "command": "/home/b-c-g/.local/bin/bruin",
+            "args": [
+                "mcp"
+            ]
+        }
+    }
+}
