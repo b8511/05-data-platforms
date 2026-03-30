@@ -1,0 +1,26 @@
+name: ingestion.zone_lookup
+type: duckdb.seed
+
+# NYC TLC Taxi Zone Lookup — maps LocationID to Borough, Zone, and service_zone.
+# Published by NYC Taxi & Limousine Commission at:
+# https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+parameters:
+  path: https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv
+
+columns:
+  - name: LocationID
+    type: integer
+    primary_key: true
+    checks:
+      - name: not_null
+      - name: unique
+  - name: Borough
+    type: string
+    checks:
+      - name: not_null
+  - name: Zone
+    type: string
+    checks:
+      - name: not_null
+  - name: service_zone
+    type: string
